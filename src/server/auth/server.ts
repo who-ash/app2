@@ -38,12 +38,12 @@ export const auth = betterAuth({
                         'https://authx.xcelerator.co.in/api/auth/.well-known/openid-configuration',
                     redirectURI:
                         // 'http://localhost:3003/api/auth/oauth2/callback/authx',
-                        'https://app1.ash404.me/api/auth/oauth2/callback/authx',
+                        'https://app2.ash404.me/api/auth/oauth2/callback/authx',
                 },
             ],
         }),
     ],
-    trustedOrigins: ['http://localhost:3003', 'https://app1.ash404.me'],
+    trustedOrigins: ['http://localhost:3003', 'https://app2.ash404.me'],
     emailVerification: {
         sendVerificationEmail: async ({ user, url }) => {
             const { subject, html } = createVerificationEmail(url);
