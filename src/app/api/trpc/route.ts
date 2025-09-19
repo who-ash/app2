@@ -1,9 +1,9 @@
 import { initTRPC } from '@trpc/server';
-import superjson from 'superjson';
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
+import superjson from 'superjson';
 
 // Initialize tRPC with a JSON transformer
-const t = initTRPC.context<{}>().create({
+const t = initTRPC.context<object>().create({
     transformer: superjson,
 });
 const router = t.router;

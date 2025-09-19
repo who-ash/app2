@@ -1,6 +1,5 @@
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-import { db } from '@/server/db';
 import { nextCookies } from 'better-auth/next-js';
 import { admin, genericOAuth } from 'better-auth/plugins';
 import { sendEmail } from '@/lib/email';
@@ -8,6 +7,7 @@ import {
     createVerificationEmail,
     createResetPasswordEmail,
 } from '@/lib/email-templates';
+import { db } from '@/server/db';
 
 if (!process.env.DATABASE_URL) {
     throw new Error('DATABASE_URL is not set');
@@ -32,11 +32,12 @@ export const auth = betterAuth({
                     clientSecret: 'secret_r903gv2hnrjub8mugu7bs',
                     scopes: ['openid', 'profile', 'email'],
                     discoveryUrl:
-                        "http://localhost:3000/api/auth/.well-known/openid-configuration",
-                     redirectURI: 'http://localhost:3003/api/auth/oauth2/callback/authx',
-                }
-            ]
-        })
+                        'http://localhost:3000/api/auth/.well-known/openid-configuration',
+                    redirectURI:
+                        'http://localhost:3003/api/auth/oauth2/callback/authx',
+                },
+            ],
+        }),
     ],
     trustedOrigins: ['http://localhost:3003'],
     emailVerification: {

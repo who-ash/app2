@@ -118,7 +118,6 @@ For the best development experience, configure your editor to integrate with ESL
 ### Visual Studio Code (VSCode)
 
 1.  **Install Recommended Extensions**:
-
     - **ESLint** (by Microsoft, id: `dbaeumer.vscode-eslint`): Integrates ESLint into VSCode.
     - **Prettier - Code formatter** (by Prettier, id: `esbenp.prettier-vscode`): Formats code using Prettier.
     - **Tailwind CSS IntelliSense** (by Tailwind Labs, id: `bradlc.vscode-tailwindcss`): Provides autocompletion, linting, and syntax highlighting for Tailwind CSS.

@@ -11,14 +11,12 @@ To maintain consistency and quality throughout the project lifecycle, all team m
 ### Code Organization Rules
 
 1. **File Structure Enforcement**:
-
     - All server-side code MUST be located in the `src/server/` directory
     - All client components MUST be placed in appropriate directories under `src/app/`
     - Shared utilities MUST go in `src/lib/`
     - Context providers MUST be in `src/providers/`
 
 2. **Naming Conventions**:
-
     - Use PascalCase for React components: `UserProfile.tsx`
     - Use camelCase for utilities and hooks: `useFormattedDate.ts`
     - Use kebab-case for CSS files: `button-styles.css`
@@ -31,13 +29,11 @@ To maintain consistency and quality throughout the project lifecycle, all team m
 ### Development Process Rules
 
 1. **Branch Management**:
-
     - Feature branches must follow pattern: `feature/feature-name`
     - Bug fixes must follow pattern: `fix/issue-description`
     - Always rebase on main before creating a pull request
 
 2. **Commit Guidelines**:
-
     - Follow Conventional Commits format: `feat: add user authentication`
     - Include issue number when applicable: `fix: resolve login redirect issue (#123)`
     - Keep commits focused on single logical changes
@@ -50,7 +46,6 @@ To maintain consistency and quality throughout the project lifecycle, all team m
 ### API Development Rules
 
 1. **tRPC Implementation**:
-
     - All procedures MUST be properly typed with Zod schemas for inputs
     - Public procedures MUST be explicit about their exposure
     - Protected procedures MUST include proper session validation
@@ -65,7 +60,6 @@ To maintain consistency and quality throughout the project lifecycle, all team m
 ### Security Rules
 
 1. **Authentication**:
-
     - NEVER bypass authentication for protected routes
     - ALWAYS validate user permissions for admin actions
     - NEVER expose sensitive tokens in client-side code
@@ -79,7 +73,6 @@ To maintain consistency and quality throughout the project lifecycle, all team m
 ### Performance Rules
 
 1. **Frontend Optimization**:
-
     - Implement proper code-splitting for larger components
     - Optimize images and assets before deployment
     - Use React Server Components where possible to reduce client bundle
@@ -339,12 +332,10 @@ const protectedRouter = router({
 ### Project Organization
 
 1. **Component Structure**:
-
     - Reusable UI components go in `src/components/`
     - Page-specific components should live within their page directory
 
 2. **Server Logic**:
-
     - Keep all server-related code in the `src/server/` directory
     - Database models in `src/server/db/schema.ts`
     - API routes using tRPC procedures in `src/server/trpc/router.ts`
@@ -394,12 +385,10 @@ The project enforces code quality standards with ESLint and Prettier:
 ## Deployment Considerations
 
 1. **Database Setup**:
-
     - Ensure your PostgreSQL database is properly set up
     - Run migrations on deployment with `pnpm db:push`
 
 2. **Environment Variables**:
-
     - Set all required environment variables in your deployment platform
     - Ensure `NEXT_PUBLIC_APP_URL` is set to your production URL
 

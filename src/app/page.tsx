@@ -1,19 +1,23 @@
-"use client";
+'use client';
+import React from 'react';
 import { authClient, useSession } from '@/server/auth/client';
 
 export default function Home() {
-    const { data, error} = useSession();
-  const handleAuthRedirection = async () => {
-    const { data, error } = await authClient.signIn.oauth2({
-      providerId: "authx",
-      scopes: ["openid", "profile", "email"],
-    });
-    console.log('data:', data);
-    console.log('error:', error);
-  };
+    const { data } = useSession();
+    const handleAuthRedirection = async () => {
+        await authClient.signIn.oauth2({
+            providerId: 'authx',
+            scopes: ['openid', 'profile', 'email'],
+        });
+    };
     return (
         <>
-            <button onClick={handleAuthRedirection} className='bg-white text-black p-2'>Login app2</button>
+            <button
+                onClick={handleAuthRedirection}
+                className="bg-white p-2 text-black"
+            >
+                Login app2
+            </button>
             <h1>Welcome to App 2, {data?.user?.name}</h1>
         </>
     );
