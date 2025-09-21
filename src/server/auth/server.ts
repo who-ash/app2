@@ -14,6 +14,7 @@ if (!process.env.DATABASE_URL) {
 }
 
 export const auth = betterAuth({
+    baseURL: 'https://app2.ash404.me',
     database: drizzleAdapter(db, {
         provider: 'pg',
         usePlural: true,
@@ -28,17 +29,17 @@ export const auth = betterAuth({
             config: [
                 {
                     providerId: 'authx',
-                    // clientId: 'client_pd6m6104v2il2fso31mgn',
                     clientId: 'client_tondkofz1caercix6g0pq',
-                    // clientSecret: 'secret_r903gv2hnrjub8mugu7bs',
+                    // clientId: 'client_tondkofz1caercix6g0pq',
                     clientSecret: 'secret_b3kasapg1nr0gz5lzgjctit',
+                    // clientSecret: 'secret_b3kasapg1nr0gz5lzgjctit',
                     scopes: ['openid', 'profile', 'email'],
                     discoveryUrl:
-                        // 'http://localhost:3000/api/auth/.well-known/openid-configuration',
-                        'https://authx.xcelerator.co.in/api/auth/.well-known/openid-configuration',
+                        'https://authx.ash404.me/api/auth/.well-known/openid-configuration',
+                        // 'https://authx.xcelerator.co.in/api/auth/.well-known/openid-configuration',
                     redirectURI:
-                        // 'http://localhost:3003/api/auth/oauth2/callback/authx',
                         'https://app2.ash404.me/api/auth/oauth2/callback/authx',
+                        // 'https://app2.ash404.me/api/auth/oauth2/callback/authx',
                 },
             ],
         }),
@@ -72,6 +73,12 @@ export const auth = betterAuth({
             maxAge: 5 * 60,
         },
     },
+    socialProviders: {
+        google: {
+            clientId: process.env.GOOGLE_CLIENT_ID || '',
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+        }
+    }
 });
 
 export async function getUserSession(headers?: Headers) {
