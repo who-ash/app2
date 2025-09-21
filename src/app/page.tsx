@@ -10,6 +10,11 @@ export default function Home() {
             scopes: ['openid', 'profile', 'email'],
         });
     };
+
+    const handleSignOut = async () => {
+        await authClient.signOut();
+        window.location.href = '/';
+    }
     return (
         <>
             <button
@@ -17,6 +22,12 @@ export default function Home() {
                 className="bg-white p-2 text-black"
             >
                 Login app2
+            </button>
+            <button
+                onClick={handleSignOut}
+                className="bg-red-500 text-white p-2 ml-4"
+            >
+                Sign Out
             </button>
             <h1>Welcome to App 2, {data?.user?.name}</h1>
         </>
