@@ -44,7 +44,7 @@ export const auth = betterAuth({
             ],
         }),
     ],
-    trustedOrigins: ['http://localhost:3003', 'https://app2.ash404.me'],
+    trustedOrigins: ['http://localhost:3003', 'https://app2.ash404.me', 'https://authx.ash404.me'],
     emailVerification: {
         sendVerificationEmail: async ({ user, url }) => {
             const { subject, html } = createVerificationEmail(url);
